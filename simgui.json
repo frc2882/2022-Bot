@@ -1,0 +1,49 @@
+{
+  "HALProvider": {
+    "Other Devices": {
+      "Compressor[0]": {
+        "header": {
+          "open": true
+        }
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Collector": "Subsystem",
+      "/LiveWindow/DriveTrain": "Subsystem",
+      "/LiveWindow/Lift": "Subsystem",
+      "/LiveWindow/Shooter": "Subsystem",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
+    }
+  },
+  "NetworkTables": {
+    "CameraPublisher": {
+      "USB Camera 0": {
+        "open": true
+      }
+    },
+    "LiveWindow": {
+      "Collector": {
+        "open": true
+      },
+      "DriveTrain": {
+        "open": true
+      },
+      "Lift": {
+        "open": true
+      },
+      "Shooter": {
+        "open": true
+      },
+      "Ungrouped": {
+        "Scheduler": {
+          "open": true
+        }
+      },
+      "open": true
+    }
+  }
+}
