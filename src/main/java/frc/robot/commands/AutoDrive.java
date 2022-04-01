@@ -4,34 +4,47 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
+/** An example command that uses an example subsystem. */
 public class AutoDrive extends CommandBase {
-  /** Creates a new AutoDrive. */
+  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final DriveTrain m_subsystem;
+  private Timer autoTimer = new Timer();
 
-  public AutoDrive(DriveTrain m_drive) {
+  /**
+   * Creates a new AutoDrive.
+   *
+   * @param subsystem The subsystem used by this command.
+   */
+  public AutoDrive(DriveTrain subsystem) {
+    m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    m_subsystem = m_drive;
     addRequirements(m_subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    autoTimer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.driveArcade(-.25, 0);
+    if(autoTimer.get() > 7) {
+      m_subsystem.m_robotDrive.arcadeDrive(-.25, 0);
+    }
+    if(autoTimer.get() > 11) {
+      m_subsystem.m_robotDrive.stopMotor();
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    m_subsystem.stop();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

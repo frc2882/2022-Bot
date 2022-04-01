@@ -14,6 +14,7 @@ import frc.robot.commands.ManualDrive;
 import frc.robot.commands.ManualShoot;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootLow;
+import frc.robot.commands.AutoDrive;
 import frc.robot.commands.Autonomous;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Lift;
@@ -33,7 +34,7 @@ import edu.wpi.first.wpilibj2.command.StartEndCommand;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final DriveTrain m_DriveTrain = new DriveTrain();
+  public final DriveTrain m_DriveTrain = new DriveTrain();
   private final Lift m_Lift = new Lift();
   private final Shooter m_Shooter = new Shooter();
   private final Collector m_Collector = new Collector();
@@ -41,6 +42,7 @@ public class RobotContainer {
   private final Shoot m_shoot = new Shoot(m_Shooter, m_Collector);
   private final ShootLow m_shootLow = new ShootLow(m_Shooter, m_Collector);  
   private final Autonomous m_auto = new Autonomous(m_DriveTrain, m_Shooter, m_Collector);
+  public final AutoDrive m_autoDrive = new AutoDrive(m_DriveTrain);
 
   public static final XboxController m_driverController = new XboxController(0);
   

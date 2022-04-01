@@ -28,9 +28,7 @@ public class Autonomous extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> m_shooter.stop()),
         new InstantCommand(() -> m_collect.stop())
-      ),
-      new WaitCommand(0.5),
-      new AutoDrive(m_drive).withTimeout(3)
+      )
     );
   }
 }
