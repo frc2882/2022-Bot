@@ -33,7 +33,8 @@ public class ManualDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.driveArcade(m_controller.getLeftY()*-1, m_controller.getRightX());
+    m_subsystem.m_robotDrive.arcadeDrive(m_controller.getLeftY()*-1, m_controller.getRightX()*.9);
+    // m_subsystem.driveArcade(m_controller.getLeftY()*-1, m_controller.getRightX());
     // m_subsystem.driveCurvature(m_controller.getLeftY()*-1, m_controller.getRightX(), m_controller.getLeftStickButton());
   }
 

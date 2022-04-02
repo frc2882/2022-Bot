@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 public class Shoot extends SequentialCommandGroup {
   public Shoot(Shooter m_shoot, Collector m_collect) {
     addCommands(
-      new RunCommand(() -> m_shoot.fire(0,1)).withTimeout(2),
+      new RunCommand(() -> m_shoot.fire(0,1)).withTimeout(1),
       new ParallelCommandGroup(
         new RunCommand(() -> m_collect.collect()),
         new RunCommand(() -> m_shoot.fire(1, 1))
