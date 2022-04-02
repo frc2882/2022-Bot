@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 public class Lift extends SubsystemBase { 
@@ -13,9 +14,13 @@ public class Lift extends SubsystemBase {
   //private final DoubleSolenoid m_DoubleSolenoidRight = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 5,4);
   private final Solenoid m_solenoidL = new Solenoid(PneumaticsModuleType.CTREPCM, 6);
   private final Solenoid m_solenoidR = new Solenoid(PneumaticsModuleType.CTREPCM, 7);
+
+  private final Compressor compressor = new Compressor(PneumaticsModuleType.CTREPCM);
   
   /** Creates a new Lift. */
-  public Lift() {}
+  public Lift() {
+    // compressor.disable();
+  }
 
   public void liftUp() {
     m_solenoidL.set(true);
